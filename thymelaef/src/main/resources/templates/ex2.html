@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <ul>
+            <li th:each="dto:${list}">
+                <!--인라인 표현식 [[]]= 별도의 태그속성 지정 하지 않고 사용-->
+                [[${dto}]]
+
+            </li>
+            <li th:each="dto,state:${list}">
+                <!--상태 state객체-->
+                [[${state.index}]][[${dto}]]
+
+            </li>
+
+
+        </ul>
+</body>
+</html>
