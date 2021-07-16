@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+                                                        <!--this:: a= 현재페이지::frag이름-->
+        <th:block th:repalce="~{/layout/layout1 ::setContent(~{this::contentPara})}">
+
+
+            <th:blcok th:fragment="contentPara">
+                <h1> exContent</h1>
+            </th:blcok>
+
+
+        </th:block>
+</body>
+</html>

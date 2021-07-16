@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <th:block th:replace="~{/framents/frament3 :: target(~{this::#ulFirst}, ~{this::#ulSecond} ) 6}">
+
+          <ul id="ulFirst">
+              <lI>aaa</lI>
+              <lI>bbb</lI>
+              <lI>ccc</lI>
+          </ul>
+
+          <ul id="ulSecond">
+              <lI>111</lI>
+              <lI>222</lI>
+              <lI>333</lI>
+          </ul>
+
+      </th:block>
+
+</body>
+</html>

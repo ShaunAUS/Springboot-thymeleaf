@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <ul>
+            <li th:each="dto:${list}">
+                <!--인라인 표현식 [[]]= 별도의 태그속성 지정 하지 않고 사용-->
+                [[${dto}]]
+
+            </li>
+            <li th:each="dto,state:${list}">
+                <!--상태 state객체-->
+                [[${state.index}]][[${dto}]]
+
+            </li>
+            <!--//th 이중으로 사용가능
+            //if문-->
+            <li th:each="dto,state:${list}" th:if="${dto.sno % 5==-0}">
+                [[${dto}]]
+            </li>
+
+            <li th:each="dto,state:${list}" >
+                <span th:if="${dto.sno % 5==-0}" th:text="${dto.sno}"></span>
+
+                <span th:unless="${dto.sno % 5==0}" th:text="${dto.first}"></span>
+
+            </li>
+           <!-- //삼항연산자-->
+            <li th:each="dto,state:${list}" th:text="{dto.sno % 5==0}? ${dto.sno}:${dto.first}">
+            </li>
+
+           <!-- block=타임리프 표현을 어느 곳에서든 사용할 수 있도록 하는 구문이다. html 태그 없이 단독으로 th:if나 th:switch를 사용해야 할 때
+-->         <th:block th:each="dto: ${list}">
+                <li th:text=$"{dto.sno % 5==0}?${dto.sno}:${dto.first}"></li>
+            </th:block>
+
+        </ul>
+
+</body>
+</html>
